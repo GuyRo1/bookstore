@@ -1,0 +1,34 @@
+@use '../fonts';
+@use '../variables' as vars;
+
+.login {
+
+    &.closed{
+        display: none;
+    }
+
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); 
+    border-radius: 15px 50px;
+    background-color: ivory;
+    padding: 10px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    color: vars.$adminBackground;
+
+    form{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap:10px;
+    }
+    
+
+}
