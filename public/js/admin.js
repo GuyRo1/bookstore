@@ -26,14 +26,14 @@ loginButton.addEventListener('click', async event => {
 
         const token = await adminLogin(userName, password)
         if (!token) {
-            console.log("can not log in");
+            
             chooseVisibleSection(loginScreen)
         }
         else {
-            chooseVisibleSection("management")
+            chooseVisibleSection(management)
         }
     } catch (err) {
-        console.log("can not log in");
+       
         chooseVisibleSection(loginScreen)
     }
 

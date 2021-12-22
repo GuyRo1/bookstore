@@ -1,0 +1,43 @@
+@use "../variables" as vars;
+
+.page-buttons-container {
+    width: 30%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    .page-indicator {
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        padding: 3px 0;
+        font-size: 20px;
+        color: vars.$mainColor;
+    }
+
+    button {
+        display: block;
+        height: 30px;
+        width: 30px;
+        color: vars.$mainColor;
+        border: none;
+        background: none;
+        cursor: pointer;
+
+        &.close {
+            cursor: none;
+            pointer-events: none;
+            color: vars.$white-color;
+        }
+
+        &.disabled {
+            pointer-events: none;
+            color: grey;
+        }
+
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

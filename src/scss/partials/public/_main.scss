@@ -1,0 +1,62 @@
+@use '../variables' as vars;
+@use './searchbar';
+@use './pagination';
+
+main:not(.admin){
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:30px;
+    min-height:80vh;
+}
+
+a{
+    text-decoration: none;
+    color:vars.$secondary-color;
+}
+
+.books-container{
+    display:flex;
+    flex-direction : row;
+    flex-wrap: wrap;
+    gap:80px;
+    margin-left:20px;
+}
+
+.book-container {
+    
+    
+    justify-content: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    .description,
+    .numberofpages,
+    .id,
+    .price {
+        display: none;
+    }
+
+    
+    .name,
+    .author {
+        width: 180px;
+        height: 30px;
+    }
+
+    
+
+    .book-cover-image-container {
+        width: 120px;
+        height: 180px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+

@@ -5,7 +5,8 @@ const cors = require('cors')
 const hbs = require('hbs')
 const bookRouter = require('./routers/api/books')
 const adminRouter = require('./routers/api/admins')
-const adminPage = require('./routers/public/adminPage')
+const adminPage = require('./routers/web/adminPage')
+const publicPages = require('./routers/web/publicPages')
 const errorHandler = require('./middleware/errorHandler')
 
 const app = express()
@@ -23,6 +24,7 @@ app.use(express.static(publicDirectoryPath))
 app.use('/books', bookRouter)
 app.use('/admins',adminRouter)
 app.use('/admin',adminPage)
+app.use(publicPages)
 app.use(errorHandler)
 
 module.exports = app

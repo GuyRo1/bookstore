@@ -1,0 +1,52 @@
+@use './partials/public/orderNowButton';
+
+.bookpage-container{
+    margin-top:150px;
+    width:80%;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:start;
+    flex-basis: auto;
+    gap:40px;
+
+    .cover-container {
+        height: 240px;
+        width: 150px;
+        flex-basis: auto;
+
+        img {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .main-container {
+        flex-shrink: 1000;
+        padding: 0px;
+        margin: 0px;
+
+        h1{
+            margin:0px;
+            padding:0px;
+        }
+    }
+
+    .order-container {
+        height:240px;
+        display: flex;
+        flex-direction:column;
+        justify-content:flex-end;
+
+        .button-container {
+            width:100px;
+        }
+    }
+
+    .cover-container{
+
+    }
+
+    
+}

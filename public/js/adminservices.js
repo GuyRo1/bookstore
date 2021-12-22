@@ -99,7 +99,7 @@ const addBookRequest = async newBook => {
 
 const getAllBooksRequest = async () => {
     try {
-        const response = await fetch('/books/')
+        const response = await fetch('/books')
         const data = await response.json()
         return data
     } catch (err) {

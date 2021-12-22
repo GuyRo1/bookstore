@@ -1,5 +1,6 @@
 const Book = require('../models/book')
 
+
 async function addNewBook(req, res, next) {
 
     try {
@@ -12,22 +13,41 @@ async function addNewBook(req, res, next) {
     }
 }
 
-//turn into function with query params
 async function getBooks(req, res, next) {
     try {
-        const books = await Book.find()
+        let books, limit, skip
+        const match = {}
+        if (req.query.nameContains) {
+            match.name = { $regex: new RegExp(req.query.nameContains,"i") }
+            console.log(match.name);
+           
+        }
+
+
+        if (req.query.limit && req.query.skip) {
+            limit = parseInt(req.query.limit)
+            skip = parseInt(req.query.skip)
+        }
+
+
+        if (limit !== NaN && skip !== NaN)
+            books = await Book.find(match).limit(limit).skip(skip)
+        else
+            books = await Book.find(match)
+
+
         res.send(books)
     } catch (err) {
-        res.status(500).send(err)
+        next(err)
     }
 }
 
 async function getBook(req, res, next) {
     try {
-        const books = await Book.findOne({ _id: req.id })
-        res.send(books)
+        const book = await Book.findOne({ _id: req.params.bookID })
+        res.send(book)
     } catch (err) {
-        res.status(500).send(err)
+        next(err)
     }
 }
 

@@ -1,5 +1,5 @@
 const Admin = require('../models/admin')
-const express = require('express')
+//const express = require('express')
 
 async function check(req, res) {
     res.send({ status: 200, message: "admin status is approved" })
@@ -7,8 +7,6 @@ async function check(req, res) {
 
 async function login(req, res,next) {
     try {
-       
-        console.log(req.body)
         if (!req.body.userName||!req.body.password) throw new Error('')
         
         const token = await Admin.login(req.body.userName, req.body.password)
