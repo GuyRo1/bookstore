@@ -34,6 +34,7 @@ function generateAddToCartButton(bookID) {
                 ]
             }
         }
+        alert("Book was added to your cart")
         window.localStorage.setItem('anonymousCart', JSON.stringify(cartContent))
     })
     return buttonContainer

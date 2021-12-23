@@ -1,0 +1,52 @@
+@use "./buttons.scss";
+
+.shopping-cart-container {
+    margin-top: 100px;
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    width: 70%;
+
+    .cart-line {
+        width: 100%;
+        display: flex;
+       
+
+        div{
+            display: flex;
+            
+        }
+        .id {
+            width: 30%;
+            justify-content: flex-start ;
+        }
+
+        .name {
+            width: 40%;
+            justify-content: flex-start ;
+        }
+
+        .amount{
+            width: 15%;
+            justify-content: center;
+        }
+        .price {
+            width: 15%;
+            justify-content: flex-end;
+        }
+    }
+
+    .final-price-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .final-price {
+            text-align: right;
+        }
+
+        .div-for-alignment {
+            width: 75%;
+        }
+    }
+}

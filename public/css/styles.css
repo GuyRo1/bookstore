@@ -218,11 +218,11 @@ header nav {
   padding-right: 30px;
   background-color: #26408b;
 }
-header nav .shopping-cart-container {
+header nav .shopping-cart-icon-container {
   width: 30px;
   height: 30px;
 }
-header nav .shopping-cart-container svg {
+header nav .shopping-cart-icon-container svg {
   color: white;
 }
 header .logo-container {
@@ -347,6 +347,7 @@ a {
   height: 100%;
 }
 
+.order-now,
 .add-to-cart {
   display: block;
   width: 100%;
@@ -362,6 +363,7 @@ a {
   font-weight: 400;
   text-align: center;
 }
+.order-now:hover,
 .add-to-cart:hover {
   background-color: #005fb2;
   border-color: #005fb2;
@@ -404,6 +406,47 @@ a {
 }
 .bookpage-container .order-container .button-container {
   width: 100px;
+}
+.shopping-cart-container {
+  margin-top: 100px;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+  width: 70%;
+}
+.shopping-cart-container .cart-line {
+  width: 100%;
+  display: flex;
+}
+.shopping-cart-container .cart-line div {
+  display: flex;
+}
+.shopping-cart-container .cart-line .id {
+  width: 30%;
+  justify-content: flex-start;
+}
+.shopping-cart-container .cart-line .name {
+  width: 40%;
+  justify-content: flex-start;
+}
+.shopping-cart-container .cart-line .amount {
+  width: 15%;
+  justify-content: center;
+}
+.shopping-cart-container .cart-line .price {
+  width: 15%;
+  justify-content: flex-end;
+}
+.shopping-cart-container .final-price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.shopping-cart-container .final-price-container .final-price {
+  text-align: right;
+}
+.shopping-cart-container .final-price-container .div-for-alignment {
+  width: 75%;
 }
 
 /*# sourceMappingURL=styles.css.map */
