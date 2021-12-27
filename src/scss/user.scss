@@ -1,0 +1,62 @@
+@use "./partials/fonts";
+@use "./partials/variables" as vars;
+
+.user-login {
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px 50px;
+    background-color: vars.$mainColor;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: vars.$white-color;
+
+    h1 {
+        font-size: 48px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        margin: 0;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+
+        .registration {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    
+    .alert-message {
+        align-self: flex-start;
+        padding-left: 10px;
+
+        &.closed {
+            display: none;
+        }
+
+        &.error {
+            color: red;
+            font-weight: bold;
+        }
+
+        &.success {
+            color: green;
+            font-weight: bold;
+        }
+    }
+}

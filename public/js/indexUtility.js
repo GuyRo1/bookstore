@@ -22,6 +22,8 @@ function generateBook(book) {
         bookContainer.append(bookPropertyNode)
     }
     bookContainer.id = book._id
+    const addToCartButton = generateAddToCartButton(book._id)
+    bookContainer.append(addToCartButton)
     return bookContainer
 }
 
@@ -86,10 +88,10 @@ async function setBooksData(state) {
         else
             result = await getBooksForSearch(state.searchTerm)
 
-    
+
         let counter = result.startingPage
 
-        for (let i=0; i < result.data.length; i++) {
+        for (let i = 0; i < result.data.length; i++) {
             if (i % state.booksOnPage === 0) {
                 loadedBooks.pages.push({ pageNumber: counter, books: [] })
                 counter++
@@ -123,8 +125,8 @@ function showDataOnPage(loadedBooks, pageNumber) {
             })
         }
     }
-    if(booksContainer.innerHTML==="")
-    booksContainer.innerHTML = "No Books"
+    if (booksContainer.innerHTML === "")
+        booksContainer.innerHTML = "No Books"
 }
 
 function setBookInsideLink(bookHTML) {
@@ -134,19 +136,7 @@ function setBookInsideLink(bookHTML) {
     return link
 }
 
-function saveState(state) {
-    const sessionStorage = window.sessionStorage
-    sessionStorage.setItem('state', JSON.stringify(state))
-}
 
-function loadState() {
-    const stateAsString = window.sessionStorage.getItem('state')
-    const state = JSON.parse(stateAsString) || {}
-    state.pageNumber = state.pageNumber || 1
-    state.searchTerm = state.searchTerm || ""
-    state.booksOnPage = state.booksOnPage || 5
-    return state
-}
 
 function nextPage(loadedBooks, delta) {
 
@@ -178,7 +168,7 @@ function nextPage(loadedBooks, delta) {
 }
 
 function setPagesNavigationButtons(pageNumber, firstPage, lastPage) {
-    
+
     if (pageNumber <= firstPage)
         loadedBooks.prev = false
     else
@@ -188,13 +178,13 @@ function setPagesNavigationButtons(pageNumber, firstPage, lastPage) {
     else
         loadedBooks.next = true
 
-    if(loadedBooks.next||loadedBooks.prev)
-    pageIndicator.textContent = pageNumber
+    if (loadedBooks.next || loadedBooks.prev)
+        pageIndicator.textContent = pageNumber
     else
-    pageIndicator.textContent =""
+        pageIndicator.textContent = ""
 }
 
-function setInitialInput(state){
+function setInitialInput(state) {
     searchBar.value = state.searchTerm
 }
 

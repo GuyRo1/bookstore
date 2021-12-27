@@ -1,14 +1,16 @@
 const shoppingCartDiv = document.querySelector('.js-shopping-cart')
 
+let userCartData = {}
+
 let cartData = {
     booksForCart: {},
     cartObject: {}
 }
+
 let shoppingCart = {
     cartLines: [],
     priceForCheckout: 0
 }
-
 
 async function getCartData() {
     try {
@@ -63,7 +65,6 @@ function mergeCartAndBookData(cartData) {
     return shoppingCart
 }
 
-
 function generateCartPage(shoppingCart) {
     shoppingCart.cartLines.forEach(item => {
         const cartLineDiv = document.createElement("div")
@@ -99,7 +100,6 @@ function generateCartPage(shoppingCart) {
     alignmentDiv.textContent = "Final Price"
     finalPriceDiv.append(alignmentDiv)
     finalPriceDiv.append(finalPrice)
-    //finalPriceDiv.append(buttonContainer)
     shoppingCartDiv.append(finalPriceDiv)
     shoppingCartDiv.append(buttonContainer)
 }
@@ -109,17 +109,57 @@ function generateEmptyCartPage() {
     shoppingCartDiv.textContent = "No books in cart"
 }
 
+function getCartDataForUser(userCartData) {
+    const shoppingCart = {
+        cartLines: [],
+        priceForCheckout: 0
+    }
 
+    userCartData.forEach(cartItem => {
+        let cartLineData = {
+            id: cartItem.book._id,
+            name: cartItem.book.name,
+            amount: cartItem.amount,
+            price: cartItem.book.price * cartItem.amount
+        }
+        shoppingCart.cartLines.push(cartLineData)
+        shoppingCart.priceForCheckout += cartLineData.price
+    })
 
+    return shoppingCart
+}
 
+async function initializePage() {
+    try {
+        const userName = await setUserStatus()
+        if (userName)
+            loggedInAs(userName)
+        if (isLoggedIn) {
+            const userCartData = await getCartService()
+            if (userCartData.length !== 0) {
+                shoppingCart = getCartDataForUser(userCartData)
+                generateCartPage(shoppingCart)
+            } else {
+                generateEmptyCartPage()
+            }
+        } else {
+            cartData = await getCartData()
+            shoppingCart = mergeCartAndBookData(cartData)
+            if (shoppingCart.priceForCheckout !== 0)
+                generateCartPage(shoppingCart)
+            else
+                generateEmptyCartPage()
+        }
+    } catch (err) {
+        throw err
+    }
+}
 
-getCartData().then(result => {
-    cartData = result
-    shoppingCart = mergeCartAndBookData(cartData)
-    generateCartPage(shoppingCart)
-
-
-}).catch(err => {
+initializePage().then().catch(err => {
     console.log(err);
     generateEmptyCartPage()
 })
+
+
+
+

@@ -13,4 +13,8 @@ router.get('/book/:bookID',(req,res)=>{
 router.get('/cart',(req,res)=>{
     res.render('shoppingCart')
 })
+
+router.get('/user',(req,res)=>{
+    res.render('user')
+})
 module.exports = router

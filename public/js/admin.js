@@ -76,15 +76,6 @@ getBooks.addEventListener('click', async event=>{
 })
 
 
-
-
-
-
-
-
-
-
-
 renderManagementScreenIfLoggedIn().then().catch(err => {
     console.log("need to log in")
     setTimeout((chooseVisibleSection(loginScreen)), 800)

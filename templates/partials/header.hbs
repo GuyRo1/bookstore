@@ -7,12 +7,27 @@
                 </div>
             </a>
         </div>
-        <div class="shopping-cart-icon-container">
-            <a href="/cart">
-                <div class="shopping-cart-icon-container">
-                    {{>shoppingCartSVG}}
-                </div>
-            </a>
+        <div class="menu-container">
+            <div class="user-name js-user-name">
+            </div>
+            <div class="link-container log-in-text">
+
+                <a href="/user" class="js-user-page">
+                    <div class="log-in-text js-log-in-text">
+                        Log In
+                    </div>
+                </a>
+
+            </div>
+            <div class="link-container">
+                <a href="/cart">
+                    <div class="shopping-cart-icon-container">
+                        {{>shoppingCartSVG}}
+                    </div>
+                </a>
+            </div>
         </div>
     </nav>
 </header>
+{{!-- <script type="text/javascript" src="/js/publicServices.js"></script>
+ <script type="text/javascript" src="/js/header.js" defer></script> --}}

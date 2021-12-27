@@ -59,13 +59,14 @@ AdminSchema.methods.generateAuthToken = async function () {
 
         return token
     } catch (err) {
-        console.log(err);
+        throw err
     }
 }
 
 AdminSchema.statics.login = async function (userName, password) {
     try {
-        const admin = await Admin.findOne({ userName })
+
+        const admin = await Admin.findOne({ "username": userName })
         if (!admin) throw { status: 400, message: "unable to log in" }
         const isMatch = await bcrypt.compare(password, admin.password)
         if (!isMatch) throw { status: 400, message: "unable to log in" }

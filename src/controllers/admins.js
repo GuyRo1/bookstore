@@ -1,5 +1,4 @@
 const Admin = require('../models/admin')
-//const express = require('express')
 
 async function check(req, res) {
     res.send({ status: 200, message: "admin status is approved" })

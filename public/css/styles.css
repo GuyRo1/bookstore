@@ -218,25 +218,61 @@ header nav {
   padding-right: 30px;
   background-color: #26408b;
 }
-header nav .shopping-cart-icon-container {
+header nav .menu-container {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  align-items: flex-end;
+}
+header nav .menu-container .user-name {
+  color: white;
+  padding-right: 40px;
+}
+header nav .menu-container .link-container {
   width: 30px;
   height: 30px;
 }
-header nav .shopping-cart-icon-container svg {
+header nav .menu-container .link-container.log-in-text {
+  width: 80px;
+  height: 20px;
+}
+header nav .menu-container .link-container.log-in-text a {
   color: white;
 }
-header .logo-container {
-  width: 35px;
-  height: 35px;
+header nav .menu-container .link-container.log-in-text a:hover {
+  text-decoration: underline;
 }
-header .logo-container .icon-container {
+header nav .menu-container .link-container a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+header nav .menu-container .link-container a .shopping-cart-icon-container {
   width: 100%;
   height: 100%;
 }
-header .logo-container svg {
-  width: 100%;
-  height: 100%;
+header nav .menu-container .link-container a .shopping-cart-icon-container svg {
   color: white;
+  height: 100%;
+  width: 100%;
+}
+header nav .logo-container {
+  height: 50px;
+  width: 50px;
+}
+header nav .logo-container a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+header nav .logo-container a .icon-container {
+  height: 100%;
+  width: 100%;
+}
+header nav .logo-container a .icon-container svg {
+  color: white;
+  height: 100%;
+  width: 100%;
 }
 
 .search-bar-wrapper {
@@ -329,9 +365,15 @@ a {
 }
 .book-container .description,
 .book-container .numberofpages,
-.book-container .id,
-.book-container .price {
+.book-container .id {
   display: none;
+}
+.book-container .price {
+  width: 180px;
+  height: 30px;
+}
+.book-container .price::after {
+  content: " NIS";
 }
 .book-container .name,
 .book-container .author {
@@ -447,6 +489,58 @@ a {
 }
 .shopping-cart-container .final-price-container .div-for-alignment {
   width: 75%;
+}
+
+.user-login {
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px 50px;
+  background-color: #26408b;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: white;
+}
+.user-login h1 {
+  font-size: 48px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  margin: 0;
+}
+.user-login form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+.user-login form .registration {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+.user-login form .registration:hover {
+  text-decoration: underline;
+}
+.user-login .alert-message {
+  align-self: flex-start;
+  padding-left: 10px;
+}
+.user-login .alert-message.closed {
+  display: none;
+}
+.user-login .alert-message.error {
+  color: red;
+  font-weight: bold;
+}
+.user-login .alert-message.success {
+  color: green;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=styles.css.map */

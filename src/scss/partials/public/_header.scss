@@ -13,31 +13,75 @@ header {
         padding-left: 20px;
         padding-right: 30px;
         background-color: vars.$mainColor;
-        
 
-        .shopping-cart-icon-container {
-            width: 30px;
-            height: 30px;
+        .menu-container {
+            display: flex;
+            gap: 10px;
+            position: relative;
+            align-items: flex-end;
 
-            svg{
+            .user-name{
                 color:vars.$white-color;
+                padding-right:40px;
+            }
+
+            .link-container {
+                width: 30px;
+                height: 30px;
+
+                &.log-in-text {
+                    width: 80px;
+                    height:20px;
+
+                    a{
+                        color:vars.$white-color;
+                        
+                        &:hover{
+                           text-decoration: underline;
+                            
+                        }
+                    }
+                }
+
+                a {
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+
+                    .shopping-cart-icon-container {
+                        width: 100%;
+                        height: 100%;
+
+                        svg {
+                            color: vars.$white-color;
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+                }
             }
         }
-    }
 
-    .logo-container {
-        width: 35px;
-        height: 35px;
+        .logo-container {
+            height: 50px;
+            width: 50px;
 
-        .icon-container {
-            width: 100%;
-            height: 100%;
-        }
+            a {
+                display: block;
+                height: 100%;
+                width: 100%;
 
-        svg {
-            width: 100%;
-            height: 100%;
-            color: vars.$white-color;
+                .icon-container {
+                    height: 100%;
+                    width: 100%;
+
+                    svg {
+                        color: vars.$white-color;
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
         }
     }
 }

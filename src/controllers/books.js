@@ -8,7 +8,6 @@ async function addNewBook(req, res, next) {
         await book.save()
         res.send(book)
     } catch (err) {
-        console.log(err);
         next(err)
     }
 }

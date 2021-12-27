@@ -11,7 +11,7 @@ async function adminLogin(userName, password) {
 
         const data = await response.json()
 
-        if (!data.token) throw { status: "not logged in" }
+        if (!data.token) throw { message:"Invalid user name or password"}
 
         const sessionStorage = window.sessionStorage
         sessionStorage.setItem('admin-token', data.token)

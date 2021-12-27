@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/js/publicUtility.js" defer></script>
+    <script type="text/javascript" src="/js/userServices.js" defer></script>
+    <script type="text/javascript" src="/js/userUtility.js" defer></script>
+    <script type="text/javascript" src="/js/header.js" defer></script>
+    <script type="text/javascript" src="/js/user.js" defer></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title></title>
+</head>
+
+<body>
+    {{>header}}
+    <main>
+        <div class="js-user-login user-login">
+            <h1 class="js-form-header">Log In</h1>
+            <form class="user-login-form">
+                <div class="form-field">
+                    <div class="label-container">
+                        <label for="user-name">user name</label>
+                    </div>
+                    <div class="input-container">
+                        <input id="user-name" type="text" placeholder="user name" required />
+                    </div>
+                </div>
+                <div class="form-field">
+                    <div class="label-container">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-container">
+                        <input id="password" type="password" placeholder="Password" required />
+                    </div>
+                </div>
+                <div class="form-field">
+                    <button id="button" class="js-submit-button" type="submit">Log in</button>
+                </div>
+                <a class="registration js-change-mode" href="/">Create an account</a>
+
+            </form>
+            <div class="alert-message js-alert-message">
+
+            </div>
+        </div>
+    </main>
+    {{>footer}}
+</body>
+
+</html>

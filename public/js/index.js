@@ -3,7 +3,6 @@ const forwardButton = document.querySelector('.js-forward-button')
 const booksContainer = document.querySelector('.js-books-container')
 const pageIndicator = document.querySelector('.js-page-indicator')
 const searchBar = document.querySelector('.js-search-bar')
-const homeButton = document.querySelector('.js-home-button')
 let searchStart
 let loadedBooks = {}
 let state = {
@@ -12,19 +11,9 @@ let state = {
     booksOnPage: 0
 }
 
-homeButton.addEventListener("click",(event) => {
-    event.preventDefault()
-    saveState({
-        pageNumber: 0,
-        searchTerm: "",
-        booksOnPage: 0
-    })
-    window.location.href="/"
-})
-
 searchBar.addEventListener('keyup', () => {
     clearTimeout(searchStart)
-   
+
     searchStart = setTimeout(() => {
         disableInput()
         state = setSearchTerm(state, searchBar.value)
@@ -53,16 +42,25 @@ backButton.addEventListener('click', () => {
 })
 
 
-
-state = loadState()
-setBooksData(state)
-    .then(result => {
-        loadedBooks = result
+async function initializePage() {
+    try {
+        const userName = await setUserStatus()
+        if (userName)
+            loggedInAs(userName)
+        state = loadState(state)
+        loadedBooks = await setBooksData(state)
         setPagesNavigationButtons(state.pageNumber, loadedBooks.firstPage, loadedBooks.lastPage)
         setInitialInput(state)
         showDataOnPage(loadedBooks, state.pageNumber)
-    }).catch(err => {
-        console.log(err);
-    })
+    } catch (err) {
+        throw err;
+    }
+}
+
+
+
+initializePage().then().catch(err => {
+    console.log(err);
+})
 
 
