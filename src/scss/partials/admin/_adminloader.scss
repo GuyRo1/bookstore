@@ -18,12 +18,12 @@
         width: 11em;
         height: 11em;
         border-radius: 50%;
-        background: #ffffff;
-        background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-        background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-        background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-        background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-        background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+        background: vars.$mainColor;
+        background: -moz-linear-gradient(left, vars.$mainColor 10%, rgba(255, 255, 255, 0) 42%);
+        background: -webkit-linear-gradient(left, vars.$mainColor 10%, rgba(255, 255, 255, 0) 42%);
+        background: -o-linear-gradient(left, vars.$mainColor 10%, rgba(255, 255, 255, 0) 42%);
+        background: -ms-linear-gradient(left, vars.$mainColor 10%, rgba(255, 255, 255, 0) 42%);
+        background: linear-gradient(to right, vars.$mainColor 10%, rgba(255, 255, 255, 0) 42%);
         position: relative;
         -webkit-animation: load3 1.4s infinite linear;
         animation: load3 1.4s infinite linear;
@@ -34,7 +34,7 @@
       .loader:before {
         width: 50%;
         height: 50%;
-        background: #ffffff;
+        background: vars.$mainColor;
         border-radius: 100% 0 0 0;
         position: absolute;
         top: 0;
@@ -42,7 +42,7 @@
         content: '';
       }
       .loader:after {
-        background: rgb(44, 41, 41);
+        background: vars.$white-color;
         width: 75%;
         height: 75%;
         border-radius: 50%;
@@ -74,6 +74,4 @@
           transform: rotate(360deg);
         }
       }
-      
-
 }

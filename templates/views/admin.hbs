@@ -13,9 +13,9 @@
 
     <title>Admin</title>
 </head>
-
 <body>
-    <main class="admin">
+     {{>adminHeader}}
+    <main>
         <div class="login closed">
             {{>adminloginform}}
         </div>
@@ -25,7 +25,7 @@
         <div class="management closed">
             {{>adminManagement}}
         </div>
+        {{>footer}}
 
 </body>
-
 </html>

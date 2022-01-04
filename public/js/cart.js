@@ -1,6 +1,14 @@
 const shoppingCartDiv = document.querySelector('.js-shopping-cart')
+const modalBackDrop = document.querySelector('.js-modal-backdrop')
+const modalBox = document.querySelector('.js-modal-box')
+const modalExitButton = document.querySelector('.js-exit-modal')
 
 let userCartData = {}
+
+modalExitButton.addEventListener('click', () => {
+    modalBox.classList.remove('open')
+    modalBackDrop.classList.remove('open')
+})
 
 let cartData = {
     booksForCart: {},
@@ -33,7 +41,7 @@ async function getCartData() {
                 throw err
             }
         } else {
-            throw err
+            throw {message:"no books in cart"}
         }
     } catch (err) {
         throw err
@@ -88,11 +96,14 @@ function generateCartPage(shoppingCart) {
     const orderNow = document.createElement("button")
     orderNow.className = "order-now"
     orderNow.textContent = "Order Now"
-    //change this 
-    orderNow.addEventListener("click", () => {
-        //change this 
-        //this should change some classes for the modal to pop out only
-        alert("you bought stuff")
+    orderNow.addEventListener("click", async () => {
+        if (isLoggedIn)
+            await clearCartService()
+        else
+            window.localStorage.removeItem('anonymousCart')
+        modalBox.classList.add('open')
+        modalBackDrop.classList.add('open')
+        generateEmptyCartPage()
     })
     buttonContainer.append(orderNow)
     const alignmentDiv = document.createElement("div")
@@ -159,7 +170,3 @@ initializePage().then().catch(err => {
     console.log(err);
     generateEmptyCartPage()
 })
-
-
-
-

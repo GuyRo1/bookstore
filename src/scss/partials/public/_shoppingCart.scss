@@ -10,28 +10,33 @@
     .cart-line {
         width: 100%;
         display: flex;
-       
 
-        div{
+        div {
             display: flex;
-            
         }
         .id {
-            width: 30%;
-            justify-content: flex-start ;
+            display:none;
+            
+
+            @media (min-width: 800px) {
+                width: 30%;
+                justify-content: flex-start;
+                overflow: hidden;
+            }
         }
 
         .name {
-            width: 40%;
-            justify-content: flex-start ;
+            width: 50%;
+            justify-content: flex-start;
         }
 
-        .amount{
-            width: 15%;
+        .amount {
+            width: 5%;
             justify-content: center;
         }
         .price {
             width: 15%;
+            flex-grow: 1;
             justify-content: flex-end;
         }
     }

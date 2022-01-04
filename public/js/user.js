@@ -47,13 +47,13 @@ submitButton.addEventListener('click', async (event) => {
         if (currentMode === "logIn") {
             await logInUser(userNameValue, passwordValue)
             alertMessage.className = "success"
-            changeAlertMessage("success", `${userNameValue}, you are logged in`)
             loggedInAs(userNameValue)
+            window.location.href="/"
         } else {
             await registerUser(userNameValue, passwordValue)
             await logInUser(userNameValue, passwordValue)
-            changeAlertMessage("success", `Welcome ${userNameValue}, you are logged in`)
             loggedInAs(userNameValue)
+            window.location.href="/"
         }
 
     } catch (err) {
@@ -71,8 +71,6 @@ async function initializePage() {
         throw err;
     }
 }
-
-
 
 initializePage().then().catch(err => {
     console.log(err);

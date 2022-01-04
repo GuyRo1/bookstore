@@ -1,0 +1,48 @@
+<div class="backdrop js-modal-backdrop"></div>
+<div class="modal js-modal-box">
+    <div class="exit-modal-container js-exit-modal">
+        {{>SVG/exit}}
+    </div>
+    <form class="book-form js-book-form">
+        <div class="form-title">
+            <h1 class="js-title-form"></h1>
+        </div>
+        <div class="input-container js-book-id-container">
+            <label for="id">Book Id:</label>
+            <input class="js-book-form-input" type="text" id="id" name="id">
+        </div>
+        <div class="input-container">
+            <label for="name">Name:</label>
+            <input class="js-book-form-input" type="text" id="name" name="name">
+        </div>
+        <div class="input-container">
+            <label for="image">Cover URL:</label>
+            <input class="js-book-form-input" type="text" id="image" name="image">
+        </div>
+        <div class="input-container">
+            <label for="author">Author:</label>
+            <input class="js-book-form-input" type="text" id="author" name="author">
+        </div>
+
+        <div class="input-container">
+            <label for="description">Description:</label>
+            <textarea class="js-book-form-input" id="description" name="description"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="numberofpages">Number of pages:</label>
+            <input class="js-book-form-input" type="number" id="numberofpages" name="numberofpages">
+        </div>
+        <div class="input-container">
+            <label for="price">Price:</label>
+            <input class="js-book-form-input" type="number" id="price" name="price">
+        </div>
+        <div class="submit-container">
+            <button class="submit-form js-book-submit-button">
+
+            </button>
+        </div>
+    </form>
+    <div class="result-container js-book-result-container closed">
+
+    </div>
+</div>

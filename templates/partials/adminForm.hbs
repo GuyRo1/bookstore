@@ -1,0 +1,46 @@
+{{!-- <div>
+    <button id="get_books">Get All books</button>
+</div> --}}
+<form class="closed book-change-form new-book">
+    <div class="modes">
+        <button id="add-book">Add</button>
+        <button id="edit-book">Edit</button>
+        <button id="delete-book">Delete</button>
+    </div>
+    <div class="js-form-type title new-book">
+        New Book
+    </div>
+    <div class="input-container book-id disabled">
+        <label for="id">Book Id:</label>
+        <input class="js_new_book_input" type="text" id="id" name="id">
+    </div>
+    <div class="input-container">
+        <label for="name">Name:</label>
+        <input class="js_new_book_input" type="text" id="name" name="name">
+    </div>
+    <div class="input-container">
+        <label for="image">Cover URL:</label>
+        <input class="js_new_book_input" type="text" id="image" name="image">
+    </div>
+    <div class="input-container">
+        <label for="author">Author:</label>
+        <input class="js_new_book_input" type="text" id="author" name="author">
+    </div>
+    <div class="description-label">Description:</div>
+    <div class="input-container">
+        <textarea class="js_new_book_input" id="description" name="description" cols=150 rows=5></textarea>
+    </div>
+    <div class="input-container">
+        <label for="numberofpages">Number of pages:</label>
+        <input class="js_new_book_input" type="number" id="numberofpages" name="numberofpages">
+    </div>
+    <div class="input-container">
+        <label for="price">Price:</label>
+        <input class="js_new_book_input" type="number" id="price" name="price">
+    </div>
+    <div class="actions">
+        <button id="clear">Clear</button>
+        <button id="save_book">Save to DB</button>
+    </div>
+</form>
+<div class="books-container"></div>

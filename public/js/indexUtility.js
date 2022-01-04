@@ -136,8 +136,6 @@ function setBookInsideLink(bookHTML) {
     return link
 }
 
-
-
 function nextPage(loadedBooks, delta) {
 
     disableInput()

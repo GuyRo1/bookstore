@@ -65,6 +65,21 @@ async function addBookToCart(req, res, next) {
 
 }
 
+async function clearCart(req, res, next) {
+    try {
+        req.user.cart = [] 
+        const filter = { _id: req.user._id }
+        const update = req.user
+        const user = await User.findOneAndUpdate(filter, update, { new: true })
+        res.send({ status: 200, user })
+    } catch (err) {
+        next(err)
+    }
+
+
+
+}
+
 async function getCart(req, res, next) {
     try {
 
@@ -77,4 +92,4 @@ async function getCart(req, res, next) {
 
 }
 
-module.exports = { getCart, addBookToCart, check, login, registration }
+module.exports = { clearCart, getCart, addBookToCart, check, login, registration }

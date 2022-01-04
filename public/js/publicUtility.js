@@ -52,12 +52,10 @@ function generateAddToCartButton(bookID) {
     return buttonContainer
 }
 
-
 function saveState(state) {
     const sessionStorage = window.sessionStorage
     sessionStorage.setItem('state', JSON.stringify(state))
 }
-
 
 function loadState() {
     const stateAsString = window.sessionStorage.getItem('state')

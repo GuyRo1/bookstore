@@ -5,6 +5,8 @@
     display: flex;
     gap: 10px;
     justify-content: center;
+    cursor:pointer;
+    margin-top:20px;
 
     .page-indicator {
         height: 30px;
@@ -13,6 +15,7 @@
         padding: 3px 0;
         font-size: 20px;
         color: vars.$mainColor;
+        cursor:pointer;
     }
 
     button {

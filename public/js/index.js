@@ -41,7 +41,6 @@ backButton.addEventListener('click', () => {
     saveState(state)
 })
 
-
 async function initializePage() {
     try {
         const userName = await setUserStatus()
@@ -56,8 +55,6 @@ async function initializePage() {
         throw err;
     }
 }
-
-
 
 initializePage().then().catch(err => {
     console.log(err);

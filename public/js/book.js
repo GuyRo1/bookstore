@@ -2,9 +2,6 @@ const bookPage = document.querySelector(".js-book-page")
 const bookID = getBookIdFromURL(window.location.href)
 let bookObject 
 
-
-
-
 getBookRequest(bookID).then(result => {
     bookObject = result
     generateBookPage(result)
@@ -12,8 +9,6 @@ getBookRequest(bookID).then(result => {
 }).catch(err => {
     console.log(err);
 })
-
-
 
 function getBookIdFromURL(url) {
     const partsOfUrl = url.split('/');

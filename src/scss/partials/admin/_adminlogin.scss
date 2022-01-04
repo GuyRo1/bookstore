@@ -1,9 +1,8 @@
-@use '../fonts';
-@use '../variables' as vars;
+@use "../fonts";
+@use "../variables" as vars;
 
 .login {
-
-    &.closed{
+    &.closed {
         display: none;
     }
 
@@ -12,23 +11,86 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%);
     border-radius: 15px 50px;
-    background-color: ivory;
+    background-color: vars.$mainColor;
     padding: 10px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap:10px;
-    color: vars.$adminBackground;
+    // justify-content: center;
+    gap: 20px;
+    color: vars.$white-color;
 
-    form{
-        display:flex;
+    @media (max-width: 400px) {
+        height: 100vh;
+        width: 100vw;
+        border-radius: initial;
+        position: static;
+        left: 0;
+        top: 0;
+        transform: none;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+    }
+
+    form {
+        display: flex;
         flex-direction: column;
         justify-content: space-between;
-        gap:10px;
-    }
-    
+        gap: 10px;
 
+        @media (max-width: 400px) {
+            transform: translate(0, -150px);
+        }
+
+        .form-field {
+            font-size: 24px;
+        }
+
+        .input-container {
+            width: 200px;
+            height: 40px;
+
+            input {
+                display: block;
+                width: 100%;
+                height: 100%;
+                font-size: 20px;
+            }
+        }
+
+        .login-button {
+            //padding: 1em;
+            font-size:24px;
+            padding:20px;
+            display:block;
+            width:200px;
+            background: vars.$white-color;
+            color: vars.$secondary-color;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top:20px;
+
+            &:hover {
+                color: vars.$white-color;
+                background-color: vars.$secondary-color; 
+                border : 1px solid white;
+                cursor: pointer;
+            }
+        }
+    }
+
+    h1 {
+        font-size: 48px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        margin: 0;
+        text-align: center;
+        @media (max-width: 400px) {
+            transform: translate(0, -150px);
+        }
+    }
 }

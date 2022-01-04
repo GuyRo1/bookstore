@@ -11,7 +11,7 @@ router.get('/book/:bookID',(req,res)=>{
 })
 
 router.get('/cart',(req,res)=>{
-    res.render('shoppingCart')
+    res.render('cart')
 })
 
 router.get('/user',(req,res)=>{

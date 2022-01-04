@@ -21,7 +21,6 @@ async function userLogIn(userName, password) {
 
 }
 
-
 async function userRegistration(userName, password) {
     try {
         const response = await fetch('/users', {

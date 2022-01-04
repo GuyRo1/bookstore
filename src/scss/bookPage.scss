@@ -4,10 +4,10 @@
     margin-top:150px;
     width:80%;
     display:flex;
-    flex-direction:row;
-    justify-content:space-between;
+    flex-direction:column;
     align-items:start;
     flex-basis: auto;
+    flex-wrap:wrap;
     gap:40px;
 
     .cover-container {
@@ -37,7 +37,8 @@
         height:240px;
         display: flex;
         flex-direction:column;
-        justify-content:flex-end;
+        justify-content:flex-start;
+        align-self: flex-end;
 
         .button-container {
             width:100px;
